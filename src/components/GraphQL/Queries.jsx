@@ -45,11 +45,13 @@ export const FETCH_BUGS = gql`{
 
 export const UPDATE_BUG = gql`
   mutation UpdateBugReport($id: Int, $status: String!) {
-    tokenAuth(email: $email, status: $password) {
-      token
-      refreshToken
-      errors
-      success
+    updateBugReport(id: $id, status: $status) {
+      id
+      reporterName
+      reporterEmail
+      bugDescription
+      reporterPhoneNumber
+      status
     }
   }
 `;

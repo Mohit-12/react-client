@@ -15,8 +15,8 @@ import CardFooter from "components/Card/CardFooter.js";
 import Table from "components/Table/Table.js";
 
 //queries
-import { gql, useQuery } from "@apollo/client";
-import { FETCH_BUGS } from "../../components/GraphQL/Queries";
+import { gql, useQuery, useMutation } from "@apollo/client";
+import { FETCH_BUGS, UPDATE_BUG } from "../../components/GraphQL/Queries";
 
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { Link } from "react-router-dom";
@@ -69,15 +69,15 @@ const tableHeads = [
 
 export default function PartnerView() {
   const classes = useStyles();
-  const clickListenerFunction = function(event){
-    console.log(event.target);
-  }
+  const [bugUpdate, { bugerror, bugdata }] = useMutation(UPDATE_BUG);
   const { error, loading, data } = useQuery(FETCH_BUGS, {
     fetchPolicy: "network-only"
   });
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
-  
+  const clickListenerFunction = function(event){
+    console.log(event.target);
+  }
   const bugList = data.bugReport.map((item)=>[item.id, item.reporterName, item.reporterEmail, item.bugDescription, item.reporterPhoneNumber, item.status]);
   return (
     <div>
