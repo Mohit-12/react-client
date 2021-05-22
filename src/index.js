@@ -15,6 +15,7 @@ import { setContext } from "@apollo/client/link/context";
 // core components
 import Admin from "layouts/Admin.js";
 import Login from 'views/Login/Login'; 
+import LeaderBoard from 'views/LeaderBoard/LeaderBoardView.jsx';
 import "assets/css/material-dashboard-react.css?v=1.9.0";
 
 const hist = createBrowserHistory();
@@ -56,6 +57,7 @@ ReactDOM.render(
     <Router history={hist}>
       <Switch>
         <Route exact path="/admin/login" component={Login} />
+        <Route exact path="/admin/leaderboard-app" component={LeaderBoard} />
         <Route path="/admin" component={Admin} />
         <Redirect exact from="/" to="/admin/login" />
       </Switch>
