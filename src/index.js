@@ -57,7 +57,7 @@ ReactDOM.render(
     <Router history={hist}>
       <Switch>
         <Route exact path="/admin/login" component={Login} />
-        <Route exact path="/admin/leaderboard-app" component={LeaderBoard} />
+        <Route exact path="/leaderboard-app" component={LeaderBoard} />
         <Route path="/admin" component={Admin} />
         <Redirect exact from="/" to="/admin/login" />
       </Switch>
