@@ -64,7 +64,7 @@ export default function UserProfile() {
   if (error) return `Error! ${error.message}`;
   
   const userList = data.bugReport.map((item)=>{
-    let l = [item.reporterName, item.reporterEmail, item.bugcount]
+    let l = [item.reporterName, item.reporterEmail, 1]
     if (item.bugcount<=3){
       l.push('Bronze');
     } else if(item.bugcount>3 && item.bugcount<=10){
